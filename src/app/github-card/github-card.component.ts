@@ -25,7 +25,7 @@ export class GithubCardComponent  {
   constructor(private githubService: GithubService) {}
 
   onShowDetails(userLogin: string) {
-    
+    if (!this.isDetailsLoaded) {
       const user = this.githubService.getUsers()
                 .filter(item => item.login === userLogin)[0]
 
@@ -46,6 +46,10 @@ export class GithubCardComponent  {
           error: error => console.log(error),
           complete: () => this.isDetailsLoaded = true
         })
+    }
 
-      }
+    if (!this.isDetailsLoaded) {
+      this.isDetailsLoaded = !this.isDetailsLoaded
+    }
+  }
 }
