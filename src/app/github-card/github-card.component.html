@@ -1,4 +1,4 @@
-<li class="card" >
+<li class="card" [ngClass]="isDetailsLoaded ? 'active' : '' ">
    <div class="main" (click)="onShowDetails(user.login)" >
         <div class="info">
             <img src="{{user.avatar_url}}" alt="" class="ava">

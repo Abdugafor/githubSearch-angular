@@ -48,7 +48,7 @@ export class GithubCardComponent  {
         })
     }
 
-    if (!this.isDetailsLoaded) {
+    if (this.isDetailsLoaded) {
       this.isDetailsLoaded = !this.isDetailsLoaded
     }
   }
