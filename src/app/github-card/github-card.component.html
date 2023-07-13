@@ -1,5 +1,5 @@
-<li class="card" (click)="onShowDetails(user.login)" [ngClass]="showDetails ? 'active' : '' " >
-   <div class="main">
+<li class="card"  [ngClass]="showDetails ? 'active' : '' " >
+   <div class="main" (click)="onShowDetails(user.login)" >
         <div class="info">
             <img src="{{user.avatar_url}}" alt="" class="ava">
             <h4>{{user.login}}</h4>

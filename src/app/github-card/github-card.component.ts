@@ -32,19 +32,17 @@ export class GithubCardComponent  {
       const user = this.githubService.getUsers()
                 .filter(item => item.login === userLogin)[0]
 
-      console.log(user)
       forkJoin ({
         following: this.githubService.fetchUrl(user.following_url, true, 13),
         followers: this.githubService.fetchUrl(user.followers_url, false, 0),
-        repos: this.githubService.fetchUrl(user.repos_url, false, 0),
-        profileUrl: this.githubService.fetchUrl(user.html_url, false, 0)
+        repos: this.githubService.fetchUrl(user.repos_url, false, 0)
       })
         .subscribe(data => {
           this.userDetails = {
             followingCount: data.following.length,
             followers: data.followers.length,
             repositories: data.repos.length,
-            profileUrl: data.profileUrl
+            profileUrl: user.html_url
           }
       })
     }
