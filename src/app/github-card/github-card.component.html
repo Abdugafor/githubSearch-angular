@@ -1,0 +1,37 @@
+<li class="card" (click)="onShowDetails(user.login)" [ngClass]="showDetails ? 'active' : '' " >
+   <div class="main">
+        <div class="info">
+            <img src="{{user.avatar_url}}" alt="" class="ava">
+            <h4>{{user.login}}</h4>
+    </div>
+
+    <img src="../assets/arrow.svg" alt="" class="arrow" >
+   </div>
+
+   <div *ngIf="showDetails">
+      <div class="details">
+         <div class="info">
+            <h5>Following</h5>
+            <span>{{userDetails.followingCount}}</span>
+         </div>
+   
+         <div class="info">
+            <h5>Followers</h5>
+            <span>{{userDetails.followers}}</span>
+         </div>
+   
+         <div class="info">
+            <h5>Repositories</h5>
+            <span>{{userDetails.repositories}}</span>
+         </div>
+      </div>
+    
+      <a class="fancy" [href]="userDetails.profileUrl" target="_blank">
+         <span class="top-key"></span>
+         <span class="text">Github</span>
+         <span class="bottom-key-1"></span>
+         <span class="bottom-key-2"></span>
+       </a>
+
+   </div>
+</li>

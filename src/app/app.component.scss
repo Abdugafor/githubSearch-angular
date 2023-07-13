@@ -1,0 +1,96 @@
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+.block {
+    position: relative;
+}
+
+input {
+    border: none;
+    background: inherit;
+    border-bottom: 1px solid white;
+    outline: none;
+    padding: 20px 0;
+    width: 100%;
+    color: white;
+    font-family: inherit;
+    font-size: 25px;
+}
+
+button {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    border: none;
+    background: #2077d9;
+    color: white;
+    padding: 9px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.result {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+
+// Loader
+
+.error {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+   }
+   
+   circle {
+    fill: none;
+    stroke: hsl(214, 97%, 59%);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+   }
+   
+   @keyframes rotate4 {
+    100% {
+     transform: rotate(360deg);
+    }
+   }
+   
+   @keyframes dash4 {
+    0% {
+     stroke-dasharray: 1, 200;
+     stroke-dashoffset: 0;
+    }
+   
+    50% {
+     stroke-dasharray: 90, 200;
+     stroke-dashoffset: -35px;
+    }
+   
+    100% {
+     stroke-dashoffset: -125px;
+    }
+   }
+   
+
+// Error
