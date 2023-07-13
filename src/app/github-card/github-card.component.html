@@ -1,4 +1,4 @@
-<li class="card"  [ngClass]="showDetails ? 'active' : '' " >
+<li class="card" >
    <div class="main" (click)="onShowDetails(user.login)" >
         <div class="info">
             <img src="{{user.avatar_url}}" alt="" class="ava">
@@ -8,7 +8,7 @@
     <img src="../assets/arrow.svg" alt="" class="arrow" >
    </div>
 
-   <div *ngIf="showDetails">
+   <div *ngIf="isDetailsLoaded">
       <div class="details">
          <div class="info">
             <h5>Following</h5>

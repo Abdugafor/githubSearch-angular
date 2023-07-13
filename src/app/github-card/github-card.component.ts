@@ -12,7 +12,7 @@ export class GithubCardComponent  {
   @Input() users = []
   @Input() user
   @Input() isDetailsLoaded = false
-  @Input() showDetails = false
+
 
   userDetails = {
     followingCount: 0,
@@ -25,10 +25,7 @@ export class GithubCardComponent  {
   constructor(private githubService: GithubService) {}
 
   onShowDetails(userLogin: string) {
-    this.showDetails = !this.showDetails
-
-
-    if (this.showDetails) {
+    
       const user = this.githubService.getUsers()
                 .filter(item => item.login === userLogin)[0]
 
@@ -37,16 +34,18 @@ export class GithubCardComponent  {
         followers: this.githubService.fetchUrl(user.followers_url, false, 0),
         repos: this.githubService.fetchUrl(user.repos_url, false, 0)
       })
-        .subscribe(data => {
-          this.userDetails = {
-            followingCount: data.following.length,
-            followers: data.followers.length,
-            repositories: data.repos.length,
-            profileUrl: user.html_url
-          }
-      })
-    }
-  }
+        .subscribe({
+          next: data => {
+            this.userDetails = {
+              followingCount: data.following.length,
+              followers: data.followers.length,
+              repositories: data.repos.length,
+              profileUrl: user.html_url
+            }
+          },
+          error: error => console.log(error),
+          complete: () => this.isDetailsLoaded = true
+        })
 
-  
+      }
 }
