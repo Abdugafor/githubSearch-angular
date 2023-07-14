@@ -177,3 +177,13 @@
     right: 0;
     width: 0;
    }
+
+
+.arrowUpAnim {
+    transform: rotate(180deg);
+}
+
+
+.arrowDownAnim {
+    transform: rotate(360deg);
+}

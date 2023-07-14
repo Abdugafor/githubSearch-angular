@@ -5,7 +5,7 @@
             <h4>{{user.login}}</h4>
     </div>
 
-    <img src="../assets/arrow.svg" alt="" class="arrow" >
+    <img src="../assets/arrow.svg" alt="" class="arrow" [ngClass]="isDetailsLoaded ? 'arrowUpAnim' : 'arrowDownAnim'">
    </div>
 
    <div *ngIf="isDetailsLoaded">

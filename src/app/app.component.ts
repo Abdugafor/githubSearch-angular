@@ -10,8 +10,8 @@ import {from,  Observable, of, fromEvent, debounceTime, switchMap, tap } from 'r
 
 export class AppComponent {
   users: any = []
-  showLoader = false
-  showError = false
+  showLoader: boolean = false
+  showError: boolean = false
 
     constructor (private githubService: GithubService) {}
 

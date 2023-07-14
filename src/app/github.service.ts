@@ -4,7 +4,7 @@ import { Observable} from 'rxjs'
 
 interface IfetchUrl{
   url: string,
-  doesNeedToCut: 'yes' | 'no',
+  doesNeedToCut: boolean,
   cutLength?: number,
 }
 
@@ -20,33 +20,33 @@ export class GithubService {
 
   constructor(private http: HttpClient) { }
 
-  addUsers(usersArray) {
+  public addUsers(usersArray) {
     this.users = usersArray.items
   }
 
-  getUsers() {
+  public getUsers() {
     return this.users
   }
 
-  fetchUsers(url: string): Observable<any> {
+  public fetchUsers(url: string): Observable<any> {
     return this.http.get(url)
   }
 
 
-  fetchUrl(url, doesNeedToCut, cutLength) {
+  public fetchUrl(params: IfetchUrl) {
     
-    const cuttedUrl = this.cutUrl(url, cutLength)
+    const cuttedUrl = this.cutUrl(params.url, params.cutLength)
 
-    return this.fetchUsers(doesNeedToCut ? cuttedUrl : url) 
+    return this.fetchUsers(params.doesNeedToCut ? cuttedUrl : params.url) 
   } 
 
-  cutUrl(url: string, lengthToCut: number) {
+  private cutUrl(url: string, lengthToCut: number): string {
     const urlLength = url.length - lengthToCut
     const res = url.slice(0, urlLength)
     return res
   }
 
-  generateRandomString() {
+  public generateRandomString() {
     return (Math.random() + 1).toString(36).substring(7);
   }
 }
