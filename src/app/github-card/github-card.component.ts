@@ -29,6 +29,7 @@ export class GithubCardComponent  {
       const user = this.githubService.getUsers()
                 .filter(item => item.login === userLogin)[0]
 
+                console.log(user.repos_url)
       forkJoin ({
         following: this.githubService.fetchUrl(user.following_url, true, 13),
         followers: this.githubService.fetchUrl(user.followers_url, false, 0),
