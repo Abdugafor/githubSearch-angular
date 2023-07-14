@@ -7,18 +7,20 @@ import { AppComponent } from './app.component';
 import { GithubCardComponent } from './github-card/github-card.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
+import { GithubInfoComponent } from './github-info/github-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubCardComponent,
-    ErrorComponent
+    ErrorComponent,
+    GithubInfoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
